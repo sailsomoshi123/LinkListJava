@@ -6,8 +6,9 @@ public class LinkList<T> {
     public static void main(String[] args) {
         LinkList list = new LinkList();
         list.insertAtLast(56);
-        list.insertAtLast(30);
         list.insertAtLast(70);
+        print(list);
+        list.insertByPosition(2,30);
         print(list);
     }
     public static void print(LinkList list){
@@ -17,6 +18,7 @@ public class LinkList<T> {
             System.out.print(currentNode.data+"->");
             currentNode=currentNode.next;
         }
+        System.out.println();
     }
 
     public void insertFirst(T data){
@@ -39,6 +41,24 @@ public class LinkList<T> {
             while (temp.next!=null){
                 temp=temp.next;
             }
+            temp.next=node;
+        }
+    }
+
+    public void insertByPosition(int index, T data){
+        Node<T> node = new Node<>();
+        node.data=data;
+        node.next=null;
+        if (index==0){
+            node.next=head;
+            head=node;
+        }
+        else {
+            Node<T> temp = head;
+            for (int i = 0;i < index-1;i++){
+                temp=temp.next;
+            }
+            node.next=temp.next;
             temp.next=node;
         }
     }
