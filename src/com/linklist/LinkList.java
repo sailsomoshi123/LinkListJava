@@ -5,9 +5,9 @@ public class LinkList<T> {
 
     public static void main(String[] args) {
         LinkList list = new LinkList();
-        list.insertFirst(70);
-        list.insertFirst(30);
-        list.insertFirst(56);
+        list.insertAtLast(56);
+        list.insertAtLast(30);
+        list.insertAtLast(70);
         print(list);
     }
     public static void print(LinkList list){
@@ -25,5 +25,21 @@ public class LinkList<T> {
         node.next=null;
         node.next=head;
         head=node;
+    }
+
+    public  void insertAtLast(T data){
+        Node node = new Node();
+        node.data=data;
+        node.next=null;
+        if (head==null){
+            head=node;
+        }
+        else {
+            Node temp = head;
+            while (temp.next!=null){
+                temp=temp.next;
+            }
+            temp.next=node;
+        }
     }
 }
