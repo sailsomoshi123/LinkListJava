@@ -6,9 +6,11 @@ public class LinkList<T> {
     public static void main(String[] args) {
         LinkList list = new LinkList();
         list.insertAtLast(56);
+        list.insertAtLast(30);
+        print(list);
         list.insertAtLast(70);
         print(list);
-        list.insertByPosition(2,30);
+        list.deleteFirst();
         print(list);
     }
     public static void print(LinkList list){
@@ -61,5 +63,9 @@ public class LinkList<T> {
             node.next=temp.next;
             temp.next=node;
         }
+    }
+
+    public void deleteFirst(){
+        head=head.next;
     }
 }
