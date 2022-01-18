@@ -7,10 +7,13 @@ public class LinkList<T> {
         LinkList list = new LinkList();
         list.insertAtLast(56);
         list.insertAtLast(30);
+        list.insertAtLast(40);
         list.insertAtLast(70);
         print(list);
-        list.addafterSearch(30,40);
+        System.out.println(list.size());
+        list.delete(40);
         print(list);
+        System.out.println(list.size());
     }
 
     public static void print(LinkList list) {
@@ -99,8 +102,32 @@ public class LinkList<T> {
             }
         }return i;
     }
+    
     public void addafterSearch(T searchData,T data){
         int index=search(searchData);
         insertByPosition(index,data);
+    }
+
+    public void delete(T data){
+        Node<T> current = head;
+        Node<T> temp = null;
+        while (current!=null && current.data!=data) {
+            temp = current;
+            current = current.next;
+        }
+        if (current==null) {
+            return;
+        }
+        temp.next = current.next;
+    }
+
+    public static int size(){
+        Node temp = head;
+        int count = 0;
+        while (temp!=null){
+            count++;
+            temp=temp.next;
+        }
+        return count;
     }
 }
