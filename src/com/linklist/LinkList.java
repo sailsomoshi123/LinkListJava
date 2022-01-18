@@ -8,7 +8,8 @@ public class LinkList<T> {
         list.insertAtLast(56);
         list.insertAtLast(30);
         list.insertAtLast(70);
-        System.out.println(list.search(0));
+        print(list);
+        System.out.println(list.search(30));
     }
 
     public static void print(LinkList list) {
@@ -79,17 +80,22 @@ public class LinkList<T> {
         }
     }
 
-    public boolean search(T data) {
+    public int search(T data) {
         Node<T> temp = head;
+        int i=1;
+        boolean flag=false;
         if (head == null) {
-            return false;
+            System.out.println("list is empty");
         } else {
             while (temp != null) {
                 if (temp.data == data) {
-                    return true;
+                    System.out.println("element is present");
+                    flag=true;
+                    break;
                 }
                 temp = temp.next;
+                i++;
             }
-        }return false;
+        }return i;
     }
 }
