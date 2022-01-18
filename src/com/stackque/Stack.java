@@ -31,7 +31,5 @@ public class Stack <T>{
         stack.push(mySecondNode);
         stack.push(myThirdNode);
         stack.print();
-
-
     }
 }
