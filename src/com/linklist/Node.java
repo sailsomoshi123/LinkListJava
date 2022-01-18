@@ -13,5 +13,11 @@ public class Node<T> {
     public Node() {
 
     }
+
+    @Override
+    public String toString() {
+        return "" + data +
+                "";
+    }
 }
 

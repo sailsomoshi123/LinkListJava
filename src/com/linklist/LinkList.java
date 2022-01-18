@@ -1,7 +1,7 @@
 package com.linklist;
 
 public class LinkList<T> {
-    static Node head;
+    public static Node head;
 
     public static void main(String[] args) {
         LinkList list = new LinkList();
