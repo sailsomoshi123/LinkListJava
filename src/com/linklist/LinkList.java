@@ -8,11 +8,7 @@ public class LinkList<T> {
         list.insertAtLast(56);
         list.insertAtLast(30);
         list.insertAtLast(70);
-        System.out.println("before removing last element");
-        print(list);
-        System.out.println("After removing last element");
-        list.deleteLast();
-        print(list);
+        System.out.println(list.search(0));
     }
 
     public static void print(LinkList list) {
@@ -75,12 +71,25 @@ public class LinkList<T> {
         } else {
             Node<T> lastNode = head;
             Node<T> previousToLastNode = null;
-            while (lastNode.next!=null){
-                previousToLastNode=lastNode;
-                lastNode=lastNode.next;
+            while (lastNode.next != null) {
+                previousToLastNode = lastNode;
+                lastNode = lastNode.next;
             }
-            previousToLastNode.next=null;
+            previousToLastNode.next = null;
         }
+    }
 
+    public boolean search(T data) {
+        Node<T> temp = head;
+        if (head == null) {
+            return false;
+        } else {
+            while (temp != null) {
+                if (temp.data == data) {
+                    return true;
+                }
+                temp = temp.next;
+            }
+        }return false;
     }
 }
