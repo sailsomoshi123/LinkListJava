@@ -9,7 +9,8 @@ public class LinkList<T> {
         list.insertAtLast(30);
         list.insertAtLast(70);
         print(list);
-        System.out.println(list.search(30));
+        list.addafterSearch(30,40);
+        print(list);
     }
 
     public static void print(LinkList list) {
@@ -97,5 +98,9 @@ public class LinkList<T> {
                 i++;
             }
         }return i;
+    }
+    public void addafterSearch(T searchData,T data){
+        int index=search(searchData);
+        insertByPosition(index,data);
     }
 }
