@@ -10,10 +10,8 @@ public class LinkList<T> {
         list.insertAtLast(40);
         list.insertAtLast(70);
         print(list);
-        System.out.println(list.size());
-        list.delete(40);
+        list.sortList();
         print(list);
-        System.out.println(list.size());
     }
 
     public static void print(LinkList list) {
@@ -103,7 +101,7 @@ public class LinkList<T> {
         }return i;
     }
     
-    public void addafterSearch(T searchData,T data){
+    public void addAfterSearch(T searchData,T data){
         int index=search(searchData);
         insertByPosition(index,data);
     }
@@ -129,5 +127,27 @@ public class LinkList<T> {
             temp=temp.next;
         }
         return count;
+    }
+    public  <T extends Comparable> void  sortList() {
+        Node<T> current = head, temp = null;
+        T index;
+        if (head == null) {
+            System.out.println("LinkedList is Empty");
+        }
+        else {
+            while (current != null) {
+                temp = current.next;
+
+                while (temp != null) {
+                    if (temp.data.compareTo(current.data)<0){
+                        index =  current.data;
+                        current.data = temp.data;
+                        temp.data = index;
+                    }
+                    temp = temp.next;
+                }
+                current = current.next;
+            }
+        }
     }
 }
